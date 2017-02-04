@@ -21,30 +21,9 @@ public class Clock extends JFrame implements Runnable, WindowListener{
         JLabel dateLabel = new JLabel();
 
 
-    public static void main(String[] args) {
-        Clock clock = new Clock(); //since clock extends JFrame this is the creation of the frame. Frame appears to be the OS frame
-         clock.setSize(200,80); // Sets the shape of the frame, appears to be pixel based
-         clock.setExtendedState(JFrame.MAXIMIZED_BOTH);
-         //clock.setUndecorated(true);
-         clock.setVisible(true); // designates if the frame is visible or not.
-         try {
-                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-         }
-         catch (ClassNotFoundException e) {
 
-         } catch (InstantiationException e) {
 
-         } catch (IllegalAccessException e) {
-
-         } catch (UnsupportedLookAndFeelException e) {
-
-         }
-        clock.setResizable(true);
-         clock.start();
-
-    }
-
-    private void start(){
+    public void start(){
         if (timer == null){
             timer = new Thread(this);
             timer.start();
@@ -60,6 +39,7 @@ public class Clock extends JFrame implements Runnable, WindowListener{
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         double width = screenSize.getWidth();
         double height = screenSize.getHeight();
+
         dateLabel.setOpaque(false); //created this to make use of the .setBackground... not useful it only sets the background of the time not the frame.
         dateLabel.setBackground(Color.DARK_GRAY); // unsure of what background is changed
         dateLabel.setForeground(Color.BLACK); // Changes color of the time text
@@ -73,7 +53,7 @@ public class Clock extends JFrame implements Runnable, WindowListener{
     }
 
     public String getFormattedTime(Date d){ //Gutted out existing code because most was deprecated and used SimpleDateFormat
-        SimpleDateFormat formattedTime = new SimpleDateFormat(" HH:mm:ss z");
+        SimpleDateFormat formattedTime = new SimpleDateFormat(" hh:mm:ss a z");
         return formattedTime.format(d);
     }
 
