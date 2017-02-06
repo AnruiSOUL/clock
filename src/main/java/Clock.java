@@ -43,7 +43,7 @@ public class Clock extends JFrame implements Runnable, WindowListener{
         dateLabel.setOpaque(false); //created this to make use of the .setBackground... not useful it only sets the background of the time not the frame.
         dateLabel.setBackground(Color.DARK_GRAY); // unsure of what background is changed
         dateLabel.setForeground(Color.BLACK); // Changes color of the time text
-        dateLabel.setFont(new Font("Serif", Font.PLAIN, (int) width/8)); // name search for a suitable name in list and sets the font type, middles is style, and size.
+        dateLabel.setFont(new Font("Serif", Font.PLAIN, (int) width/10)); // name search for a suitable name in list and sets the font type, middles is style, and size.
         dateLabel.setHorizontalAlignment(JLabel.CENTER);
         dateLabel.setVerticalAlignment(JLabel.CENTER);
           this.add(dateLabel);
